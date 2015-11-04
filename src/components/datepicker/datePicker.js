@@ -58,6 +58,7 @@
           '<div class="md-datepicker-input-container" ' +
               'ng-class="{\'md-datepicker-focused\': ctrl.isFocused}">' +
             '<input class="md-datepicker-input" aria-haspopup="true" ' +
+                'ng-click="ctrl.openCalendarPane($event)" ' +
                 'ng-focus="ctrl.setFocused(true)" ng-blur="ctrl.setFocused(false)">' +
             '<md-button type="button" md-no-ink ' +
                 'class="md-datepicker-triangle-button md-icon-button" ' +
