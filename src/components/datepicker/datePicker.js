@@ -59,7 +59,7 @@
               'ng-class="{\'md-datepicker-focused\': ctrl.isFocused}">' +
             '<input class="md-datepicker-input" aria-haspopup="true" ' +
                 'ng-click="ctrl.openCalendarPane($event)" ' +
-                'ng-focus="ctrl.setFocused(false)" ng-blur="ctrl.setFocused(false)">' +
+                'ng-focus="ctrl.preventDefault($event)" ng-blur="ctrl.setFocused(false)">' +
             '<md-button type="button" md-no-ink ' +
                 'class="md-datepicker-triangle-button md-icon-button" ' +
                 'ng-click="ctrl.openCalendarPane($event)" ' +
@@ -236,6 +236,10 @@
     $scope.$on('$destroy', function() {
       self.detachCalendarPane();
     });
+  }
+
+  DatePickerCtrl.prototype.preventDefault = function(event) {
+    event.preventDefault()
   }
 
   /**
