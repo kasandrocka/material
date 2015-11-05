@@ -456,6 +456,7 @@
    */
   DatePickerCtrl.prototype.openCalendarPane = function(event) {
     if (!this.isCalendarOpen && !this.isDisabled) {
+      event.preventDefault();
       this.isCalendarOpen = true;
       this.calendarPaneOpenedFrom = event.target;
       this.attachCalendarPane();
