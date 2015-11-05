@@ -59,7 +59,7 @@
               'ng-class="{\'md-datepicker-focused\': ctrl.isFocused}">' +
             '<input class="md-datepicker-input" aria-haspopup="true" ' +
                 'ng-click="ctrl.openCalendarPane($event)" ' +
-                'ng-focus="ctrl.preventDefault($event)" ng-blur="ctrl.setFocused(false)">' +
+                'ng-focus="ctrl.setFocused(true, $event)" ng-blur="ctrl.setFocused(false, $event)">' +
             '<md-button type="button" md-no-ink ' +
                 'class="md-datepicker-triangle-button md-icon-button" ' +
                 'ng-click="ctrl.openCalendarPane($event)" ' +
@@ -516,7 +516,8 @@
    * Sets whether the input is currently focused.
    * @param {boolean} isFocused
    */
-  DatePickerCtrl.prototype.setFocused = function(isFocused) {
+  DatePickerCtrl.prototype.setFocused = function(isFocused, $event) {
+    $event.preventDefault();
     this.isFocused = isFocused;
   };
 
